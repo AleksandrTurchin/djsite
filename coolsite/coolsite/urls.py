@@ -16,10 +16,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from women.views import index, categories
+from women.views import index, categories, pageNotFound
 from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('women.urls')),
     ]
+
+handler404 = pageNotFound   # handler500 - ошибка сервера
+                            # handler403 - доступ запрещен
+                            # handler400 - невозможно обработать запрос
